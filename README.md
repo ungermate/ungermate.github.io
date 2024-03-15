@@ -3,10 +3,10 @@
 here you can find some hobby projects of mine, feel free to check them out in detail by following the appropriate links
 
 ## Projects
-#[project1](project1.md)
+# [project1](project1.md)
 Project title
 short description
-#[project2](project2.md)
+# [project2](project2.md)
 project title
 short desc
 
