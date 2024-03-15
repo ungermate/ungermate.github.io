@@ -1,10 +1,14 @@
-# My Book
+# Máté Unger
+## About
+here you can find some hobby projects of mine, feel free to check them out in detail by following the appropriate links
 
-This cookiecutter creates a simple boilerplate for a Jupyter Book.
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-
- [project1](project1.md)
- [notebook](blueberry_muffin_or_dog.ipynb)
+## Projects
+#[project1](project1.md)
+Project title
+short description
+#[project2](project2.md)
+project title
+short desc
 
  <span style="color:blue">some *blue* text</span>
 
