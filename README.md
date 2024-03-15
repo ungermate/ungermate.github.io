@@ -1,12 +1,22 @@
 # Máté Unger
 ## About
-here you can find some hobby projects of mine, feel free to check them out in detail by following the appropriate links
+Here you can find some hobby projects of mine, feel free to check  
+them out in detail by following the appropriate links
 
 ## Projects
-# [project1](project1.md)
-Project title
-short description
-# [project2](project2.md)
+
+## [Pulse from video](project1.md)
+Photoplethysmography (PPG) is a measurement technique used to observe volumetric changes in peripheral blood vessels.  
+Usual measurement setups operate by having LEDs in close proximity to skin (finger) and measuring either the transmitted or refracted light.
+
+Goal:  
+Determine my pulse using a video recorded with a regular phone camera. 
+
+
+
+
+
+## [project2](project2.md)
 project title
 short desc
 ![image](output.png)
