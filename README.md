@@ -3,6 +3,8 @@
 This cookiecutter creates a simple boilerplate for a Jupyter Book.
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 
+ [project1](project1.md)
+
 ## Usage
 
 ### Building the book
