@@ -9,6 +9,7 @@ short description
 # [project2](project2.md)
 project title
 short desc
+![image](https://github.com/ungermate/test/blob/main/output.png)
 
  <span style="color:blue">some *blue* text</span>
 
