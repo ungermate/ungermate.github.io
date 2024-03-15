@@ -5,6 +5,8 @@ aaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 
  [project1](project1.md)
 
+ <span style="color:blue">some *blue* text</span>
+
 ## Usage
 
 ### Building the book
