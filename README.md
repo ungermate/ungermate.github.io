@@ -4,6 +4,7 @@ This cookiecutter creates a simple boilerplate for a Jupyter Book.
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 
  [project1](project1.md)
+ [notebook](blueberry_muffin_or_dog.md)
 
  <span style="color:blue">some *blue* text</span>
 
