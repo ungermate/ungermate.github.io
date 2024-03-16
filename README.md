@@ -5,12 +5,13 @@ them out in detail by following the appropriate links
 
 ## Projects
 
-## [Pulse from video](project1.md)
-Photoplethysmography (PPG) is a measurement technique used to observe volumetric changes in peripheral blood vessels.  
-Usual measurement setups operate by having LEDs in close proximity to skin (finger) and measuring either the transmitted or refracted light.
+## Pulse from video
 
 Goal:  
-Determine my pulse using a video recorded with a regular phone camera. 
+Try to use a regular phone camera to gather info about my pulse.
+
+
+[Read more](project1.md)
 
 
 
