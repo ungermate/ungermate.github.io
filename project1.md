@@ -6,15 +6,15 @@ Usual measurement setups operate by having LEDs in close proximity to skin (fing
 
 ## Strategy
 
-1. Gather data
+1. **Gather data**
     1. Non-moving body part with artifical and natural light
     2. Moving body part with stabilization (also artifical and natural light)
 
-2. Preprocessing
+2. **Preprocessing**
 
      Stabilize video (optional), extract metadata (lenght, fps ...) and crop frames of video
 
-4. Analysis
+4. **Analysis**
 
    Look at difference between adjacent frames, apply filters, search for local maxima, count peaks
 
