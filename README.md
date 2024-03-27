@@ -9,13 +9,13 @@ Measuring my pulse using a regular phone camera
   
 
 ![image](output.png)  
-[Read more](project1.md)
+[Read more](ppg.md)
 
 
 ## Posture detection
 How to sit straight  
-![image](output.png)  
-[Read more](project2.md)
+![image](sitting_straight.png)  
+[Read more](postureDetection.md)
 
 
  <span style="color:blue">some *blue* text</span>
