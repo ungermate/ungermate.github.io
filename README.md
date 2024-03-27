@@ -14,6 +14,7 @@ Measuring my pulse using a regular phone camera
 
 ## Posture detection
 How to sit straight  
+![image](output.png)  
 [Read more](project2.md)
 
 
