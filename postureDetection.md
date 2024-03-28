@@ -72,3 +72,129 @@ Once I had the angles and ratios calculated I was finally able to visualize them
 
 I consider the visual elements changing (shown in previous section) to be a sort of feedback. However this is probably not the best way to do it since I would not like to have an open window showing myself all the time. I also tried implementing a warining tone/sound in addition but playing the sound seems a bit more tricky than anticipated as accessing the speakers messes with the camera feed and program execution.
 
+
+### Code
+
+```python 
+import time
+import cv2
+import mediapipe as mp
+from mediapipe.tasks import python
+from mediapipe.tasks.python import vision
+import numpy as np
+import math
+from Util import Landmark, angle, line, depth_diff, createModel
+import winsound
+```
+
+```python
+model_path = './models/pose_landmarker_heavy.task'
+model = createModel(model_path)
+```
+
+```python
+cap = cv2.VideoCapture(0)
+while cap.isOpened():
+    # read frame
+    _, frame = cap.read()
+    # resize the frame for portrait video
+    # frame = cv2.resize(frame, (350, 600))
+
+    # convert to RGB then mp-format and flip frame along vetrial axis
+    frame_rgb = cv2.flip(cv2.cvtColor(frame, cv2.COLOR_BGR2RGB), 1)
+    mp_image = mp.Image(image_format=mp.ImageFormat.SRGB, data=frame_rgb)
+    frame = cv2.flip(frame, 1)
+
+    # process the frame for pose detection
+    result = model.detect_for_video(mp_image, round(time.time() * 1000))
+
+    # only proceed if there are landmarks detected
+    if result.pose_landmarks != []:
+        landmarks = result.pose_landmarks[0]
+
+        # landmarks of interest
+        head = Landmark.from_mp(landmarks[0], frame.shape)
+        left_shoulder = Landmark.from_mp(landmarks[11], frame.shape)
+        right_shoulder = Landmark.from_mp(landmarks[12], frame.shape)
+
+        between_shoulders = Landmark(
+            (left_shoulder.x + right_shoulder.x) / 2,
+            (left_shoulder.y + right_shoulder.y) / 2,
+            (left_shoulder.z + right_shoulder.z) / 2,
+        )
+```
+
+```python
+        # calculating relative angles between landmark connections
+        head_angle = angle(head, between_shoulders)
+        shoulder_angle = angle(left_shoulder, right_shoulder)
+
+        # calculating relative difference in depths of landmark pairs
+        side_twist = depth_diff(left_shoulder, right_shoulder)
+        forward_lean = depth_diff(head, between_shoulders)
+
+```
+
+```python
+        head_line_color = (255, 255, 255)
+        shoulder_line_color = (255, 255, 255)
+        forward_lean_color = (255, 255, 255)
+        side_twist_color = (255, 255, 255)
+
+        # angle of head-soulder midpoint line compared to horizontal
+        if head_angle < 80:
+            head_line_color = (0, 0, 200)
+
+        # angle of line drawn between shoulders compared to horizontal 
+        if shoulder_angle > 3:
+            shoulder_line_color = (0, 0, 200)
+
+        # depth difference between the shoulders
+        if side_twist > 0.45:
+            side_twist_color = (0, 0, 200)
+
+        # depth difference between head and shoulder midpoint
+        if forward_lean < 0.8:
+            forward_lean_color = (0, 0, 200)
+
+```
+
+```python
+        # draw landmarks and connecting lines on image
+        frame = head.draw(frame)
+        frame = left_shoulder.draw(frame)
+        frame = right_shoulder.draw(frame)
+        frame = between_shoulders.draw(frame)
+
+        frame = line(frame, head, between_shoulders, color=head_line_color)
+        frame = line(frame, left_shoulder, right_shoulder, color=shoulder_line_color)
+
+        # text style
+        font = cv2.FONT_HERSHEY_SIMPLEX
+        color = (255, 255, 255)
+        line_type = cv2.LINE_AA
+
+        # drawing text for landmarks
+        frame = head.show_attr(frame, head.z)
+        frame = left_shoulder.show_attr(frame, left_shoulder.z)
+        frame = right_shoulder.show_attr(frame, right_shoulder.z)
+        frame = between_shoulders.show_attr(frame, between_shoulders.z)
+
+        # drawing text for angles in top left corner
+        frame = cv2.putText(frame, f"head angle: {head_angle}" , (10,20), font , 0.5, head_line_color, 1, line_type) 
+        frame = cv2.putText(frame, f"shoulder angle: {shoulder_angle}" , (10,40), font , 0.5, shoulder_line_color, 1, line_type)
+        frame = cv2.putText(frame, f"twist: {side_twist}" , (10,60), font , 0.5, side_twist_color, 1, line_type)
+        frame = cv2.putText(frame, f"foward lean: {forward_lean}" , (10,80), font , 0.5, forward_lean_color, 1, line_type)
+
+
+    # display the frame
+    cv2.imshow("Output", frame)
+
+    # esc button press
+    if cv2.waitKey(5) & 0xFF == 27:
+        break
+
+cap.release()
+cv2.destroyAllWindows()
+```
+
