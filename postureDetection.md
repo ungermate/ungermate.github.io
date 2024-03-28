@@ -22,4 +22,8 @@ The goal of this project is to combat my bad habits and create an automated syst
 
 ### Detection method
 
-I've found a computer vision solution from Google called Mediapipe ()
+I've found a computer vision solution from Google called [Mediapipe](https://developers.google.com/mediapipe/solutions/guide). 
+This is a whole suite of different solutions for various machine learning problems. In this project I used their pose landmark detection models. 
+These models take an image or video stream as input and try to find various key points with respect to given parameters. Key points are also called landmarks,
+and refer to charactersitic body parst such as elbows, knees, shoulders etc. The following image shows the available landmarks, their locations and reference indecies. 
+![image](images/pose_landmarks_index.png)
