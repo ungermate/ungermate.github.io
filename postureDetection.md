@@ -27,6 +27,7 @@ This is a whole suite of different solutions for various machine learning proble
 These models take an image or video stream as input and try to find various key points (coordinates within the image) with respect to given parameters. Key points are also called landmarks,
 and refer to charactersitic body parst such as elbows, knees, shoulders etc. The following image shows the available landmarks.
 ![image](images/pose_landmarks_index.png)
+
 *Available landmarks in mediapipe models along with their reference indices*
 
 Since in my case I'll be sitting the camera will not be able to see most of my body. Fortunately these models are robust enought to produce an output (a number of landmarks) even with such input limitations. It would be nice to have additional information about the relative position of my lower body but it would also require me to sit really far from the camera which will not work with my integrated webcam. 
