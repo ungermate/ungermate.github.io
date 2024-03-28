@@ -68,5 +68,7 @@ Once I had the angles and ratios calculated I was finally able to visualize them
 
 *Images demonstating what it looks like if I lean in either to the side or forward. Note the red text and lines indicating a certain value exceeding its optimal range*
 
+### Feedback 
 
+I consider the visual elements changing (shown in previous section) to be a sort of feedback. However this is probably not the best way to do it since I would not like to have an open window showing myself all the time. I also tried implementing a warining tone/sound in addition but playing the sound seems a bit more tricky than anticipated as accessing the speakers messes with the camera feed and program execution.
 
