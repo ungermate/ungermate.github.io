@@ -8,6 +8,7 @@ The goal of this project is to combat my bad habits and create an automated syst
 ## Strategy
 
 1. **Find posture detection method**
+   
      Find the most robust computer vision based method for detecting posture real time while sitting at a desk
 
 3. **Process real time camera feed**
@@ -17,3 +18,8 @@ The goal of this project is to combat my bad habits and create an automated syst
 4. **Feedback**
 
      Create some way for the system to alert me when necessary
+
+
+### Detection method
+
+I've found a computer vision solution from Google called Mediapipe ()
