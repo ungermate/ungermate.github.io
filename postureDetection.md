@@ -1,4 +1,4 @@
-<div align="justify" , style="background-color:#33475b">
+<div align="justify">
    
 # Posture detection via webcam
 
