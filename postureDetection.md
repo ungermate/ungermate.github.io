@@ -41,6 +41,9 @@ and refer to charactersitic body parst such as elbows, knees, shoulders etc. The
 </div>
 
 
+
+
+
 <div align="justify">
 Since in my case I'll be sitting the camera will not be able to see most of my body. Fortunately these models are robust enought to produce an output (a number of landmarks) even with such input limitations. It would be nice to have additional information about the relative position of my lower body but it would also require me to sit really far from the camera which will not work with my integrated webcam. 
 </div>
