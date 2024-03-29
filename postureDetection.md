@@ -25,12 +25,13 @@ The goal of this project is to combat my bad habits and create an automated syst
 ### Detection method
 
 <div align="justify">
-
 I've found a computer vision solution from Google called <a href="https://developers.google.com/mediapipe/solutions/guide">Mediapipe</a>. 
 This is a whole suite of different solutions for various machine learning problems. In this project I used their pose landmark detection models. 
 These models take an image or video stream as input and try to find various key points (coordinates within the image) with respect to given parameters. Key points are also called landmarks,
 and refer to charactersitic body parst such as elbows, knees, shoulders etc. The following image shows the available landmarks.
 </div>
+</br>
+
 
 <center>
 <img width="500" height="600" src="images/pose_landmarks_index.png">
@@ -47,22 +48,33 @@ and refer to charactersitic body parst such as elbows, knees, shoulders etc. The
 <div align="justify">
 Since in my case I'll be sitting the camera will not be able to see most of my body. Fortunately these models are robust enought to produce an output (a number of landmarks) even with such input limitations. It would be nice to have additional information about the relative position of my lower body but it would also require me to sit really far from the camera which will not work with my integrated webcam. 
 </div>
+</br>
 
 <div align="justify">
 Given the constraints of my specific application I've decided to use the landmarks corresponding to the shoulders (11,12) and some on the face (0,7,8).
 The position of the soulders should tell me if I'm leaning left/right (in-plane) or twisting (one shoulder is closer to camera). The landmarks on the head should 
 allow for head posture characterisation such as left/right leaning, twisting and forward leaning. I should also mention that the models used not only return x,y coordinates for each landmark, but they also provide a z coordinate which represents the relative position of landmarks depth-wise. This will be especially useful for detecting leaning towards and away from the camera. 
 </div>
+</br>
 
 <div align="justify">
 The Mediapipe solution package offers multiple models (similar to MobileNetV2) for the same pose detection task. These are optimized for slightly different applications, which means a tradeoff between latency (due to processing time) and landmark accuracy and consistency. There are 3 models available: posture detector -lite, -heavy and -full. 
 The lite model has the lowest latency but should also have a somewhat lower accuracy compared to the others. I tested all 3 to see which one would me the best. 
 </div>
+</br>
 
 
-![image](images/model_selection_1.PNG) ![image](images/model_selection_2.PNG)
+<center>
+<img width="600" height="450" src="images/model_selection_1.PNG">
+</center>
+</br>
+<center>
+<img width="600" height="450" src="images/model_selection_2.PNG">
+</center>
 
+<div align="center">
 *landmarks of interest for the lite, heavy and full models*
+</div>
 
 <div align="justify">
 Overall the best (most robust) seemed to be the heavy model since it could track facial landmarks the most accurately. Landmarks on the head proved to be less precise compared to those on the rest of the body, so I decided to not use landmark 7 and 8 and only kept the one on the nose (#0). The heavy model could keep track of the nose-landmark the best and it also seemed to be more consistent with the depth coordinates of the landmarks in general. There was a notivable increase in latency compared to the lite model, however this is an acceptable tradeoff since I usually tend to remain relatively still while sitting so the latency should not affect the results that much. 
@@ -75,12 +87,16 @@ Overall the best (most robust) seemed to be the heavy model since it could track
 <div align="justify">
 As previously mentioned I planned on using my integrated webcam for capturing video. Since Mediapipe utilizes openCV I could use CV2's videocapture module to access my camera and provide the model with the input. After loading the model and setting up detection parameters (number of bodies to detect, tracking landmarks..) using it is straight forward. It returns a custom mediapipe object containing metadata and data among which the landmark coordinates can be found. I found working with the data in the provided format was a bit bothersome, so I opted to create my own python class to handle it. This method also allowed my to keep the code cleaner and more human readable by packing my costom functions (depth calculation, drawing) within the class I created. I also created an extra landmark out of the 2 shoulder ones to aide the pose characterization process. 
 </div>
+</br>
+
+<center>
+<img width="600" height="450" src="images/sitting_straight.PNG">
+</center>
 
 
-![image](images/sitting_straight.PNG)
-
+<div align="center">
 *Blue circles for the landmarks used, white connecting lines, depth scores in white text next to landmarks, additional angles and ratios in top left corner*
-
+</div>
 
 Following these steps I was able to calculate several aspects of my posture namely:
 1. angle of straight line drawn between shoulders relative to horizontal orientation -> leanin side to side (in-plane)
@@ -91,12 +107,19 @@ Following these steps I was able to calculate several aspects of my posture name
 <div align="justify">
 Once I had the angles and ratios calculated I was finally able to visualize them with some conditions. For example the color of a given line would change from white to red if some value associated with it would leave a certain acceptable range. To determine these ranges I just used trial and error method while trying to sit straight with good posture and doing the exact opposite. 
 </div>
+</br>
 
 
-![image](images/side_leaning.PNG)
-![image](images/forward_lean.PNG)
-
+<center>
+<img width="600" height="450" src="images/side_leaning.PNG">
+</center>
+</br>
+<center>
+<img width="600" height="450" src="images/forward_lean.PNG">
+</center>
+<div aligh="center">
 *Images demonstating what it looks like if I lean in either to the side or forward. Note the red text and lines indicating a certain value exceeding its optimal range*
+</div>
 
 ### Feedback 
 
