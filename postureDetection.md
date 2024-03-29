@@ -121,7 +121,8 @@ Once I had the angles and ratios calculated I was finally able to visualize them
 <center>
 <img width="600" height="450" src="images/forward_lean.PNG">
 </center>
-<div aligh="center">
+
+<div align="center">
 <em>Images demonstating what it looks like if I lean in either to the side or forward. Note the red text and lines indicating a certain value exceeding its optimal range</em>
 </div>
 
