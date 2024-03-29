@@ -134,7 +134,7 @@ I consider the visual elements changing (shown in previous section) to be a sort
 
 ### Code
 
-## Main Script
+#### Main Script
 ```python 
 import time
 import cv2
@@ -257,7 +257,7 @@ while cap.isOpened():
 cap.release()
 cv2.destroyAllWindows()
 ```
-## Data structure & functions
+#### Data structure & functions
 
 ```python
 import math
