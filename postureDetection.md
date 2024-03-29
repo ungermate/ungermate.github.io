@@ -33,6 +33,8 @@ and refer to charactersitic body parst such as elbows, knees, shoulders etc. The
 </div>
 
 ![image](images/pose_landmarks_index.png)
+<img align="right" width="100" height="100" src="images/pose_landmarks_index.png">
+
 
 *Available landmarks in mediapipe models along with their reference indices*
 
