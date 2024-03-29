@@ -32,7 +32,9 @@ These models take an image or video stream as input and try to find various key 
 and refer to charactersitic body parst such as elbows, knees, shoulders etc. The following image shows the available landmarks.
 </div>
 
-<img align="center" width="500" height="600" src="images/pose_landmarks_index.png">
+<center>
+<img width="500" height="600" src="images/pose_landmarks_index.png">
+</center>
 
 <div align = "center">
 *Available landmarks in mediapipe models along with their reference indices*
