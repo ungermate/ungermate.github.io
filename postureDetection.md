@@ -1,8 +1,7 @@
-<div align="justify">
-   
 # Posture detection via webcam
 
 ## Intro
+<div align="justify">
 A lot of "office-jobs" require us to sit for prolonged periods of time, which can have adverse effects on several parts of the body due to poor sitting posture. 
 I'm (among a heap of others) guilty of leaning in all possible directions while sitting putting strain on my back and neck. 
 The goal of this project is to combat my bad habits and create an automated system that can alert me in case my posture becomes suboptimal.
@@ -24,6 +23,7 @@ The goal of this project is to combat my bad habits and create an automated syst
 
 ### Detection method
 
+<div align="justify">
 I've found a computer vision solution from Google called [Mediapipe](https://developers.google.com/mediapipe/solutions/guide). 
 This is a whole suite of different solutions for various machine learning problems. In this project I used their pose landmark detection models. 
 These models take an image or video stream as input and try to find various key points (coordinates within the image) with respect to given parameters. Key points are also called landmarks,
