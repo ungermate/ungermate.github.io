@@ -40,6 +40,7 @@ and refer to charactersitic body parst such as elbows, knees, shoulders etc. The
 <div align = "center">
 *Available landmarks in mediapipe models along with their reference indices*
 </div>
+<br>
 
 
 
