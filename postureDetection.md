@@ -38,7 +38,7 @@ and refer to charactersitic body parst such as elbows, knees, shoulders etc. The
 </center>
 
 <div align = "center">
-*Available landmarks in mediapipe models along with their reference indices*
+<em>Available landmarks in mediapipe models along with their reference indices</em>
 </div>
 <br>
 
@@ -74,8 +74,9 @@ The lite model has the lowest latency but should also have a somewhat lower accu
 </center>
 
 <div align="center">
-*landmarks of interest for the lite, heavy and full models*
+<em>landmarks of interest for the lite, heavy and full models</em>
 </div>
+<br>
 
 <div align="justify">
 Overall the best (most robust) seemed to be the heavy model since it could track facial landmarks the most accurately. Landmarks on the head proved to be less precise compared to those on the rest of the body, so I decided to not use landmark 7 and 8 and only kept the one on the nose (#0). The heavy model could keep track of the nose-landmark the best and it also seemed to be more consistent with the depth coordinates of the landmarks in general. There was a notivable increase in latency compared to the lite model, however this is an acceptable tradeoff since I usually tend to remain relatively still while sitting so the latency should not affect the results that much. 
@@ -96,8 +97,10 @@ As previously mentioned I planned on using my integrated webcam for capturing vi
 
 
 <div align="center">
-*Blue circles for the landmarks used, white connecting lines, depth scores in white text next to landmarks, additional angles and ratios in top left corner*
+<em>Blue circles for the landmarks used, white connecting lines, depth scores in white text next to landmarks,
+   additional angles and ratios in top left corner</em>
 </div>
+<br>
 
 Following these steps I was able to calculate several aspects of my posture namely:
 1. angle of straight line drawn between shoulders relative to horizontal orientation -> leanin side to side (in-plane)
@@ -119,7 +122,7 @@ Once I had the angles and ratios calculated I was finally able to visualize them
 <img width="600" height="450" src="images/forward_lean.PNG">
 </center>
 <div aligh="center">
-*Images demonstating what it looks like if I lean in either to the side or forward. Note the red text and lines indicating a certain value exceeding its optimal range*
+<em>Images demonstating what it looks like if I lean in either to the side or forward. Note the red text and lines indicating a certain value exceeding its optimal range</em>
 </div>
 
 ### Feedback 
