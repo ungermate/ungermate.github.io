@@ -24,19 +24,20 @@ The goal of this project is to combat my bad habits and create an automated syst
 
 ### Detection method
 
-
-I've found a computer vision solution from Google called [Mediapipe](https://developers.google.com/mediapipe/solutions/guide). 
 <div align="justify">
+
+I've found a computer vision solution from Google called <a href="https://developers.google.com/mediapipe/solutions/guide">Mediapipe</a>. 
 This is a whole suite of different solutions for various machine learning problems. In this project I used their pose landmark detection models. 
 These models take an image or video stream as input and try to find various key points (coordinates within the image) with respect to given parameters. Key points are also called landmarks,
 and refer to charactersitic body parst such as elbows, knees, shoulders etc. The following image shows the available landmarks.
 </div>
 
-![image](images/pose_landmarks_index.png)
-<img align="right" width="100" height="100" src="images/pose_landmarks_index.png">
+<img align="center" width="500" height="600" src="images/pose_landmarks_index.png">
 
-
+<div align = "center">
 *Available landmarks in mediapipe models along with their reference indices*
+</div>
+
 
 <div align="justify">
 Since in my case I'll be sitting the camera will not be able to see most of my body. Fortunately these models are robust enought to produce an output (a number of landmarks) even with such input limitations. It would be nice to have additional information about the relative position of my lower body but it would also require me to sit really far from the camera which will not work with my integrated webcam. 
