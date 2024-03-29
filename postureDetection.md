@@ -1,7 +1,7 @@
 # Posture detection via webcam
 
 ## Intro
-<div align="justify">
+<div align="justify" bgcolor="#800000">
 A lot of "office-jobs" require us to sit for prolonged periods of time, which can have adverse effects on several parts of the body due to poor sitting posture. 
 I'm (among a heap of others) guilty of leaning in all possible directions while sitting putting strain on my back and neck. 
 The goal of this project is to combat my bad habits and create an automated system that can alert me in case my posture becomes suboptimal.
