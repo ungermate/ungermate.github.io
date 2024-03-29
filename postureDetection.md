@@ -24,7 +24,7 @@ The goal of this project is to combat my bad habits and create an automated syst
 
 ### Detection method
 
-<div align="justify" style="background-color:#33475b">
+<div align="justify">
 I've found a computer vision solution from Google called <a href="https://developers.google.com/mediapipe/solutions/guide">Mediapipe</a>. 
 This is a whole suite of different solutions for various machine learning problems. In this project I used their pose landmark detection models. 
 These models take an image or video stream as input and try to find various key points (coordinates within the image) with respect to given parameters. Key points are also called landmarks,
