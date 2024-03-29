@@ -74,7 +74,7 @@ The lite model has the lowest latency but should also have a somewhat lower accu
 </center>
 
 <div align="center">
-<em>landmarks of interest for the lite, heavy and full models</em>
+<em>Landmarks of interest for the lite, heavy and full models</em>
 </div>
 <br>
 
