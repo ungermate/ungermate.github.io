@@ -52,7 +52,22 @@ Whith these questions in mind the goal of this project is to explore some of the
 ### Training
 
 <div align="justify">
+   I wanted to try misleading the models multi-class and binary classification problems. The multiclass variety means there are more than 2 categories of things the model should put the given input into. Binary classification deals with exaclty 2 output classes. 
+   To keep this short I won't describe all the training steps.
 </div>
+<br>
+
+ **In short I had these models:**
+
+1. **Simple model binary**
+
+3. **Simple model for 10 classes**
+
+4. **Resnet18 binary**
+
+5. **Resnet18 for 10 classes**
+
+
 
 ### Attack methods
 
