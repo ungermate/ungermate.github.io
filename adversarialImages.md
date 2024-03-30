@@ -43,7 +43,7 @@ Whith these questions in mind the goal of this project is to explore some of the
   <b>Simple model:</b>
    <br>
   This one has no  distict official name. It is used for illustrating certain functionalities in coding tutorials. It has relatively few layers and a simple dataflow. It consists of 2 convolutional layers and 2 fully connected ones. 
-
+<br>
    <b>Complex model:</b>
    <br>
    I've used Resnet18 which has a much more convoluted architecture. It is 18 layers deep (as opposed to the 4 layers of the simple model) and has a few tricks up its sleeve such as non-linear data flow (data is fed forward at certain layers skipping a couple). Since these deep networks (lot of layers) come with a large number of parameters I opted not to train it from scratch but adapt a pretrained model for my purposes. 
@@ -72,7 +72,44 @@ Whith these questions in mind the goal of this project is to explore some of the
 ### Attack methods
 
 <div align="justify">
+   Several methods exist to attack neural networks and they can be grouped multiple ways. The ones I'm interested in are non-targeted and targeted methods. In a classification setting non-targeted means the ouput should be anything but the correct output. In the targeted case we want the output to be a specific class defined by us. 
 </div>
+
+   <br>
+   I decided to use reliable and relatively simple attack methods such as:
+
+   1. FGSM (Fast Gradient Sign Method)
+        In classification problem during trainig the model we optimize the model to fit the groups/classes in our data. In this attack we try to interfere with this principle by modifying the input image such that the true class will seem less probable than everything else.
+      <br>
+      We can achieve this by adding noise to our input (image) in a specific way. First we make a prediciton with the original image, then adjust the image by addign noise and then making a second prediction to see if the model has misclassified the noisy image. The noise is calculated by the following formula:
+      <br>
+      
+      X<sub>adv</sub> = X<sub>original</sub> +  ϵ * sign (∇<sub>X</sub> J(X,Y<sub>true</sub>))
+      <br>
+      
+      Where:
+      <br>
+      
+      X: input
+      X<sub>original</sub>: adversarial input
+      
+      Y<sub>true</sub>: correct/true class
+      
+      ϵ: magnitude/strength of perturbation (added noise)
+      
+      (∇<sub>X</sub> J(X,Y<sub>true</sub>)): gradien of loss function used (for the input X)
+      
+   3. One-step target class
+
+      We can wiev this attack as a modified FGSM where we do not minimize the likelyhood of the true class but maximize the likelyhood of an adversarial one. We go through the same steps as with FGSM but the formula for perturbation is slightly different:
+      <br>
+      
+      X<sub>adv</sub> = X<sub>original</sub> -  ϵ * sign (∇<sub>X</sub> J(X,Y<sub>true</sub>))
+      <br>
+      (Instead of addig noise, we substract it from the original input image)
+
+In most cases attack such as FGSM are intended to be undetectable by the human eye, so if in order for an image to be misclassified there is clearle visible perturbation the attack may not be considered succesfull.
+      
 
 ### Comparison
 
