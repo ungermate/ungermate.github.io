@@ -79,7 +79,8 @@ Whith these questions in mind the goal of this project is to explore some of the
    <br>
    I decided to use reliable and relatively simple attack methods such as:
 
-   1. FGSM (Fast Gradient Sign Method)
+   1. **FGSM (Fast Gradient Sign Method)**
+
         In classification problem during trainig the model we optimize the model to fit the groups/classes in our data. In this attack we try to interfere with this principle by modifying the input image such that the true class will seem less probable than everything else.
       <br>
       We can achieve this by adding noise to our input (image) in a specific way. First we make a prediciton with the original image, then adjust the image by addign noise and then making a second prediction to see if the model has misclassified the noisy image. The noise is calculated by the following formula:
@@ -100,7 +101,7 @@ Whith these questions in mind the goal of this project is to explore some of the
       
       (∇<sub>X</sub> J(X,Y<sub>true</sub>)): gradien of loss function used (for the input X)
       
-   3. One-step target class
+   3. **One-step target class**
 
       We can wiev this attack as a modified FGSM where we do not minimize the likelyhood of the true class but maximize the likelyhood of an adversarial one. We go through the same steps as with FGSM but the formula for perturbation is slightly different:
       <br>
