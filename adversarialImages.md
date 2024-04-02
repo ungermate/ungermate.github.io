@@ -34,13 +34,15 @@ Whith these questions in mind the goal of this project is to explore some of the
    I opted to use models that deal with visual classification problems (what object is on the image) because the input (image) alteration and output are easy to observe. Classification problems vary in difficulty depending on the similarity between the target classes (eg: banana or fish, fish A or fish B). Naturally there are more and less complex models for different kinds of problems. 
  <br>
   I wanted to see the effects of my planned mischief at multiple levels of complexity, so I chose a few models that are drastically different but were desinged to handle the same type of problems.
+</div>
 
-  <br>
+<div align="justify">
   <b>Simple model:</b>
    <br>
   This one has no  distict official name. It is used for illustrating certain functionalities in coding tutorials. It has relatively few layers and a simple dataflow. It consists of 2 convolutional layers and 2 fully connected ones. 
+</div>
 
-  <br>
+<div align="justify">
    <b>Complex model:</b>
    <br>
    I've used Resnet18 which has a much more convoluted architecture. It is 18 layers deep (as opposed to the 4 layers of the simple model) and has a few tricks up its sleeve such as non-linear data flow (data is fed forward at certain layers skipping a couple). Since these deep networks (lot of layers) come with a large number of parameters I opted not to train it from scratch but adapt a pretrained model for my purposes. 
