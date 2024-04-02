@@ -36,12 +36,14 @@ Whith these questions in mind the goal of this project is to explore some of the
   I wanted to see the effects of my planned mischief at multiple levels of complexity, so I chose a few models that are drastically different but were desinged to handle the same type of problems.
 </div>
 
+<br>
 <div align="justify">
   <b>Simple model:</b>
    <br>
   This one has no  distict official name. It is used for illustrating certain functionalities in coding tutorials. It has relatively few layers and a simple dataflow. It consists of 2 convolutional layers and 2 fully connected ones. 
 </div>
 
+<br>
 <div align="justify">
    <b>Complex model:</b>
    <br>
