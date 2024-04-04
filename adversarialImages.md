@@ -101,7 +101,7 @@ Whith these questions in mind the goal of this project is to explore some of the
       (∇<sub>X</sub> J(X,Y<sub>true</sub>)): gradien of loss function used (for the input X)
 
       <center>
-      <img width="1489" height="230" src="images/adversarial_images/non_targeted_resnet/eps_0.png">
+      <img width="1489" height="230" src="images/adversarial_images/non_targeted_resnet/non_targeted_example.png">
       </center>
 
       
