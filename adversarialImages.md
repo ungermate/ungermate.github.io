@@ -99,6 +99,11 @@ Whith these questions in mind the goal of this project is to explore some of the
       ϵ: magnitude/strength of perturbation (added noise)
       
       (∇<sub>X</sub> J(X,Y<sub>true</sub>)): gradien of loss function used (for the input X)
+
+      <center>
+      <img width="1489" height="230" src="images/adversarial_images/non_targeted_resnet/eps_0.png">
+      </center>
+
       
    3. **One-step target class**
 
@@ -114,10 +119,26 @@ In most cases attack such as FGSM are intended to be undetectable by the human e
 
 ### Comparison
 
-Simple model
+Resnet18
 
 <center>
-<img width="500" height="600" src="images/pose_landmarks_index.png">
+<img width="1489" height="230" src="images/adversarial_images/non_targeted_resnet/eps_0.png">
 </center>
+
+
+<center>
+<img width="1489" height="230" src="images/adversarial_images/non_targeted_resnet/eps_005.png">
+</center>
+
+
+<center>
+<img width="1489" height="230" src="images/adversarial_images/non_targeted_resnet/eps_01.png">
+</center>
+
+
+<center>
+<img width="1489" height="230" src="images/adversarial_images/non_targeted_resnet/eps_03.png">
+</center>
+
 
 
