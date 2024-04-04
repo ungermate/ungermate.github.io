@@ -34,7 +34,7 @@ and refer to charactersitic body parst such as elbows, knees, shoulders etc. The
 
 
 <center>
-<img width="500" height="600" src="images/pose_landmarks_index.png">
+<img width="500" height="600" src="images/posture/pose_landmarks_index.png">
 </center>
 
 <div align = "center">
@@ -66,11 +66,11 @@ The lite model has the lowest latency but should also have a somewhat lower accu
 
 
 <center>
-<img width="600" height="450" src="images/model_selection_1.PNG">
+<img width="600" height="450" src="images/posture/model_selection_1.PNG">
 </center>
 <br>
 <center>
-<img width="600" height="450" src="images/model_selection_2.PNG">
+<img width="600" height="450" src="images/posture/model_selection_2.PNG">
 </center>
 
 <div align="center">
@@ -92,7 +92,7 @@ As previously mentioned I planned on using my integrated webcam for capturing vi
 <br>
 
 <center>
-<img width="600" height="450" src="images/sitting_straight.PNG">
+<img width="600" height="450" src="images/posture/sitting_straight.PNG">
 </center>
 
 
@@ -115,11 +115,11 @@ Once I had the angles and ratios calculated I was finally able to visualize them
 
 
 <center>
-<img width="600" height="450" src="images/side_leaning.PNG">
+<img width="600" height="450" src="images/posture/side_leaning.PNG">
 </center>
 <br>
 <center>
-<img width="600" height="450" src="images/forward_lean.PNG">
+<img width="600" height="450" src="images/posture/forward_lean.PNG">
 </center>
 
 <div align="center">
