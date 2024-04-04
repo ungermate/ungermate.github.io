@@ -60,13 +60,9 @@ Whith these questions in mind the goal of this project is to explore some of the
 
  **In short I had these models:**
 
-1. **Simple model binary**
+1. **Simple model for 10 classes**
 
-3. **Simple model for 10 classes**
-
-4. **Resnet18 binary**
-
-5. **Resnet18 for 10 classes**
+2. **Resnet18 for 2 classes**
 
 
 
