@@ -61,9 +61,12 @@ Whith these questions in mind the goal of this project is to explore some of the
  **In short I had these models:**
 
 1. **Simple model for 10 classes**
+   
+     Pretrained (not modified by me) for classifying hand written digits (0-9) in small black and white images. 
 
 2. **Resnet18 for 2 classes**
-
+   
+     I used transfer learning to create a custom head for classification of muffins & dogs. [link]
 
 
 ### Attack methods
@@ -111,7 +114,10 @@ In most cases attack such as FGSM are intended to be undetectable by the human e
 
 ### Comparison
 
-<div align="justify">
-</div>
+Simple model
+
+<center>
+<img width="500" height="600" src="images/pose_landmarks_index.png">
+</center>
 
 
