@@ -99,28 +99,42 @@ In most cases attacks such as FGSM are intended to be hard to detect or undetect
 
 ### Comparison
 
+The following series of images show how the model output changes due to the amount of perturbation (epsilon) added. The title of each image has the following structure: [original label] -> [label of modified image] 
 
 Epsilon = 0 (control)
 <center>
 <img width="1489" height="230" src="images/adversarial_images/non_targeted_resnet/eps_0.png">
 </center>
-<div align="justify">
+
+<em>Unmodified control images. Notice how the model is able to tell the last image also contains dogs.  </em>
+   
 
 
 
+Epsilon = 0.05
 <center>
 <img width="1489" height="230" src="images/adversarial_images/non_targeted_resnet/eps_005.png">
 </center>
 
+<em> With only a small amount of added perturbation the images look mostly normal, however in these cases the change was enough for the model to assigned incorrect labels.  </em>
 
+
+
+Epsilon = 0.1
 <center>
 <img width="1489" height="230" src="images/adversarial_images/non_targeted_resnet/eps_01.png">
 </center>
 
+<em>With a bit more perturbatin the images look rather grainy, low quality. In some cases the modification is apparent. </em>
 
+
+
+Epsilon = 0.3
 <center>
 <img width="1489" height="230" src="images/adversarial_images/non_targeted_resnet/eps_03.png">
 </center>
+
+<em>These are not fooling anyone (except the model), they are clearly modified</em>
 
 
 
