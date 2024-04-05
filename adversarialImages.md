@@ -11,17 +11,17 @@ Whith these questions in mind the goal of this project is to explore some of the
 
 ## Strategy
 
-1. **Select models to attack**
+1. **Select model to attack**
    
-     Find a few models with similar usecases but different complexities. 
+     Find a model designed for a classification task.
 
-3. **Set the models up, train them**
+3. **Set the model up, train it**
 
-     Get a sense of how these would normally operate for later reference.
+     Get a sense of how it would normally operate for later reference.
 
-4. **Attack models**
+4. **Attack model**
 
-     Create ways that mess with the models.
+     Create ways that mess with the model.
 
 5. **Compare pre- and post-attack performance**
 
@@ -31,52 +31,31 @@ Whith these questions in mind the goal of this project is to explore some of the
 ### Model selection
 
 <div align="justify">
-   I opted to use models that deal with visual classification problems (what object is on the image) because the input (image) alteration and output are easy to observe. Classification problems vary in difficulty depending on the similarity between the target classes (eg: banana or fish, fish A or fish B). Naturally there are more and less complex models for different kinds of problems. 
+   I opted to use a model that deals with visual classification problems (what object is on the image) because the input (image) alteration and output are easy to observe.
  <br>
-  I wanted to see the effects of my planned mischief at multiple levels of complexity, so I chose a few models that are drastically different but were desinged to handle the same type of problems.
+  I wanted to make sure that any change in performance of the model was due to my mischief and not just its limited capacity to learn, so I picked Resnet18, a relatively complex one. 
 </div>
 
 <br>
 <div align="justify">
-  <b>Simple model:</b>
-   <br>
-  This one has no  distict official name. It is used for illustrating certain functionalities in coding tutorials. It has relatively few layers and a simple dataflow. It consists of 2 convolutional layers and 2 fully connected ones. 
-</div>
-
-<br>
-<div align="justify">
-   <b>Complex model:</b>
-   <br>
-   I've used Resnet18 which has a much more convoluted architecture. It is 18 layers deep (as opposed to the 4 layers of the simple model) and has a few tricks up its sleeve such as non-linear data flow (data is fed forward at certain layers skipping a couple). Since these deep networks (lot of layers) come with a large number of parameters I opted not to train it from scratch but adapt a pretrained model for my purposes. 
+  It is 18 layers deep and has a few tricks up its sleeve such as non-linear data flow (data is fed forward at certain layers skipping a couple). Since these deep networks (lot of layers) come with a large number of parameters I opted not to train it from scratch but adapt a pretrained model for my purposes. 
 </div>
 
 ### Training
 
 <div align="justify">
-   I wanted to try misleading the models multi-class and binary classification problems. The multiclass variety means there are more than 2 categories of things the model should put the given input into. Binary classification deals with exaclty 2 output classes. 
+   I wanted to try misleading the model in a binary classification problem (2 classes). I used transfer learning to create a custom head for the pretrained model and trained it to differentiate between chihuahuas and muffins on <a href="https://www.kaggle.com/datasets/samuelcortinhas/muffin-vs-chihuahua-image-classification">this dataset</a>
 </div>
 <br>
-
-
- **In short I had these models:**
-
-1. **Simple model for 10 classes**
-   
-     Pretrained (not modified by me) for classifying hand written digits (0-9) in small black and white images. 
-
-2. **Resnet18 for 2 classes**
-   
-     I used transfer learning to create a custom head for classification of muffins & dogs. [link]
 
 
 ### Attack methods
 
 <div align="justify">
-   Several methods exist to attack neural networks and they can be grouped multiple ways. The ones I'm interested in are non-targeted and targeted methods. In a classification setting non-targeted means the ouput should be anything but the correct output. In the targeted case we want the output to be a specific class defined by us. 
+   I was interested in non-targeted and targeted methods. In a classification setting non-targeted means the ouput should be anything but the correct output. In the targeted case we want the output to be a specific class defined by us. 
 </div>
 
    <br>
-   I decided to use reliable and relatively simple attack methods such as:
 
    1. **FGSM (Fast Gradient Sign Method)**
 
@@ -112,18 +91,21 @@ Whith these questions in mind the goal of this project is to explore some of the
       
       X<sub>adv</sub> = X<sub>original</sub> -  ϵ * sign (∇<sub>X</sub> J(X,Y<sub>true</sub>))
       <br>
+      
       (Instead of addig noise, we substract it from the original input image)
 
-In most cases attack such as FGSM are intended to be undetectable by the human eye, so if in order for an image to be misclassified there is clearle visible perturbation the attack may not be considered succesfull.
+In most cases attacks such as FGSM are intended to be hard to detect or undetectable by the human eye, so if in order for an image to be misclassified there is clearly visible perturbation the attack may not be considered succesfull.
       
 
 ### Comparison
 
-Resnet18
 
+Epsilon = 0 (control)
 <center>
 <img width="1489" height="230" src="images/adversarial_images/non_targeted_resnet/eps_0.png">
 </center>
+<div align="justify">
+
 
 
 <center>
