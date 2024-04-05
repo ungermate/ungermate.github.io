@@ -8,21 +8,18 @@ them out in detail by following the appropriate links
 Measuring my pulse using a regular phone camera
   
 
-![image](output.png)  
+![image](images/ppg.png)  
 [Read more](ppg.md)
 
 
 ## Posture detection
 How to sit straight  
 
-![image](images/sitting_straight.PNG)  
+![image](images/posture/sitting_straight.PNG)  
 [Read more](postureDetection.md)
 
 
 ## Evil Images
 Tricking neural networks
-![image](sitting_straight.PNG)  
+![image](images/adversarial_images/non_targeted/non_targeted_example.png)  
 [Read more](adversarialImages.md)
-
-
- <span style="color:blue">some *blue* text</span>
