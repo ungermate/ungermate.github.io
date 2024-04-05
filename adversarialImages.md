@@ -99,6 +99,8 @@ In most cases attacks such as FGSM are intended to be hard to detect or undetect
 
 ### Comparison
 
+#### Non-targeted
+
 The following series of images show how the model output changes due to the amount of perturbation (epsilon) added. The title of each image has the following structure: [original label] -> [label of modified image] 
 
 Epsilon = 0 (control)
@@ -135,6 +137,21 @@ Epsilon = 0.3
 </center>
 
 <em>These are not fooling anyone (except the model), they are clearly modified</em>
+
+
+Notice how in all of the above examples the attack only worked with a muffin image. Maybe these cookies are more dog-like than the dogs were muffin-like. Or perhaps a dog's facial features are more charactersitic to its species than a muffin's general shape (model is less confident if something is a muffin originally).
+
+The next image summarizes the models accuracy in relation to the amount of added perturbation.
+
+<center>
+   <img width="460" height="475" src="images/adversarial_images/non_targeted_resnet/resnet_no_target_dogs_acc_eps.png">
+</center>
+
+<em>Model accuracy for each amount of added perturbation</em>
+
+The grap clearly shows the attack worked. Accuracy scores almost halved with larger epsilon values. It's interesting to see the accuracy scores plateu after epsilon reaches 0.15. This suggests that the amount of added perturbation is more than enough after this point and we can get away with far less for similar results. 
+
+#### Targeted
 
 
 
