@@ -89,7 +89,7 @@ I worked with these models:
       (∇<sub>X</sub> J(X,Y<sub>true</sub>)): gradien of loss function used (for the input X)
 
       <center>
-      <img width="1489" height="230" src="images/adversarial_images/non_targeted_resnet/non_targeted_example.png">
+      <img width="1489" height="230" src="images/adversarial_images/non_targeted_resnet/binary/non_targeted_example.png">
       </center>
 
       
@@ -116,7 +116,7 @@ The following series of images show how the model output changes due to the amou
 
 Epsilon = 0 (control)
 <center>
-<img width="1489" height="230" src="images/adversarial_images/non_targeted_resnet/eps_0.png">
+<img width="1489" height="230" src="images/adversarial_images/non_targeted_resnet/binary/eps_0.png">
 </center>
 
 <em>Unmodified control images. Notice how the model is able to tell the last image also contains dogs.  </em>
@@ -126,7 +126,7 @@ Epsilon = 0 (control)
 
 Epsilon = 0.05
 <center>
-<img width="1489" height="230" src="images/adversarial_images/non_targeted_resnet/eps_005.png">
+<img width="1489" height="230" src="images/adversarial_images/non_targeted_resnet/binary/eps_005.png">
 </center>
 
 <em> With only a small amount of added perturbation the images look mostly normal, however in these cases the change was enough for the model to assigned incorrect labels.  </em>
@@ -135,7 +135,7 @@ Epsilon = 0.05
 
 Epsilon = 0.1
 <center>
-<img width="1489" height="230" src="images/adversarial_images/non_targeted_resnet/eps_01.png">
+<img width="1489" height="230" src="images/adversarial_images/non_targeted_resnet/binary/eps_01.png">
 </center>
 
 <em>With a bit more perturbatin the images look rather grainy, low quality. In some cases the modification is apparent. </em>
@@ -144,7 +144,7 @@ Epsilon = 0.1
 
 Epsilon = 0.3
 <center>
-<img width="1489" height="230" src="images/adversarial_images/non_targeted_resnet/eps_03.png">
+<img width="1489" height="230" src="images/adversarial_images/non_targeted_resnet/binary/eps_03.png">
 </center>
 
 <em>These are not fooling anyone (except the model), they are clearly modified</em>
@@ -155,7 +155,7 @@ Notice how in all of the above examples the attack only worked with a muffin ima
 The next image summarizes the models accuracy in relation to the amount of added perturbation.
 
 <center>
-   <img width="460" height="475" src="images/adversarial_images/non_targeted_resnet/resnet_no_target_dogs_acc_eps.png">
+   <img width="460" height="475" src="images/adversarial_images/non_targeted_resnet/binary/resnet_no_target_dogs_acc_eps.png">
 </center>
 
 <em>Model accuracy for each amount of added perturbation</em>
@@ -165,9 +165,68 @@ The grap clearly shows the attack worked. Accuracy scores almost halved with lar
 
 #### Resnet8 multiclass
 
+Again, some images to illustrate the effects of perturbation.
+
+Epsilon = 0
+<center>
+   <img width="1489" height="230" src="images/adversarial_images/non_targeted_resnet/multiclass/eps_0.png">
+</center>
+
+<em>Control group, model makes correct predictions</em>
+
+Epsilon = 0.05
+<center>
+   <img width="1489" height="230" src="images/adversarial_images/non_targeted_resnet/multiclass/eps_005.png">
+</center>
+
+<em>In some cases it's hard to tell whether the image has been modified or not.</em>
+
+Epsilon = 0.3
+<center>
+   <img width="1489" height="230" src="images/adversarial_images/non_targeted_resnet/multiclass/eps_03.png">
+</center>
+
+<em>Obvious signs of modification.</em>
+
+<center>
+   <img width="460" height="475" src="images/adversarial_images/non_targeted_resnet/multiclass/resnet_no_target_10_acc_eps.png">
+</center>
+<em>Model accuracy as a function of added perturbation</em>
+
+<div align="justify">
+   Again we can see a sharp drop in accuracy after 5% added perturbation. This time we have not managed to hit a plateau, however it would most certainly come with a further 5-10% added perturbation as we are nearing the 10% accuracy mark (which would be expected with random guesses). 
+</div>
+
+
+
 
 
 ### Targeted
 
+#### Resnet18 binary
+
+<div align="justify">
+   Since in the non-targeted case I only managed to get muffin -> dog misclassifications, here I set the target class to be muffins to see if I can force it the other way. Unfortunately I was not able to do so, again all mistakes were of the muffing -> dog type. 
+</div>
+
+Epsilon = 0
+<center>
+   <img width="1489" height="230" src="images/adversarial_images/targeted_resnet/muffin_target/t_eps_0.png">
+</center>
+
+<em>Control group, model makes correct predictions</em>
+
+Epsilon = 0.3
+<center>
+   <img width="1489" height="230" src="images/adversarial_images/targeted_resnet/muffin_target/t_eps_03.png">
+</center>
+
+<em>Images with most amount of perturbation. Still all laveled dogs.</em>
+
+
+<center>
+   <img width="460" height="475" src="images/adversarial_images/targeted_resnet/muffin_target/acc_vs_eps.png">
+</center>
+<em>Similar curve as before. However since all observed misclassifications are muffin -> dog, it suggests the model labels everything as a dog. Hence the drop in accuracy.</em>
 
 
