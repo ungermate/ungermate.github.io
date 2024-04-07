@@ -13,7 +13,7 @@ Whith these questions in mind the goal of this project is to explore some of the
 
 1. **Select model to attack**
    
-     Find a model designed for a classification task.
+     Find model designed for a image classification task.
 
 3. **Set the model up, train it**
 
@@ -28,7 +28,7 @@ Whith these questions in mind the goal of this project is to explore some of the
      Gauge the extent of the effectiveness of different mehtods.
 
 
-### Model selection
+## Model selection
 
 <div align="justify">
    I opted to use a model that deals with visual classification problems (what object is on the image) because the input (image) alteration and output are easy to observe.
@@ -41,15 +41,24 @@ Whith these questions in mind the goal of this project is to explore some of the
   It is 18 layers deep and has a few tricks up its sleeve such as non-linear data flow (data is fed forward at certain layers skipping a couple). Since these deep networks (lot of layers) come with a large number of parameters I opted not to train it from scratch but adapt a pretrained model for my purposes. 
 </div>
 
-### Training
+## Training
 
 <div align="justify">
-   I wanted to try misleading the model in a binary classification problem (2 classes). I used transfer learning to create a custom head for the pretrained model and trained it to differentiate between chihuahuas and muffins on <a href="https://www.kaggle.com/datasets/samuelcortinhas/muffin-vs-chihuahua-image-classification">this dataset</a>
+   I wanted to try misleading the model in a binary classification problem (2 classes) and multiclass problem (>2 classes). I used transfer learning to create custom heads for the pretrained model. 
 </div>
+
+I worked with these models:
+
+1. Resnet18 - binary classification
+     Differentiates between Chihuahuas and muffins (in some cases it's harder than you'd think) based on <a href="https://www.kaggle.com/datasets/samuelcortinhas/muffin-vs-chihuahua-image-classification">this dataset</a> with around 97% accuracy.
+
+2. Resnet18 - multiclass
+      Can label images belonging to 10 classes of animals (horse, elephand, spider...) based on <a href="https://www.kaggle.com/datasets/alessiocorrado99/animals10">this dataset</a> with an accuracy of 90%.
+
 <br>
 
 
-### Attack methods
+## Attack methods
 
 <div align="justify">
    I was interested in non-targeted and targeted methods. In a classification setting non-targeted means the ouput should be anything but the correct output. In the targeted case we want the output to be a specific class defined by us. 
@@ -97,9 +106,11 @@ Whith these questions in mind the goal of this project is to explore some of the
 In most cases attacks such as FGSM are intended to be hard to detect or undetectable by the human eye, so if in order for an image to be misclassified there is clearly visible perturbation the attack may not be considered succesfull.
       
 
-### Comparison
+## Results
 
-#### Non-targeted
+### Non-targeted
+
+#### Resnet18 binary
 
 The following series of images show how the model output changes due to the amount of perturbation (epsilon) added. The title of each image has the following structure: [original label] -> [label of modified image] 
 
@@ -151,7 +162,12 @@ The next image summarizes the models accuracy in relation to the amount of added
 
 The grap clearly shows the attack worked. Accuracy scores almost halved with larger epsilon values. It's interesting to see the accuracy scores plateu after epsilon reaches 0.15. This suggests that the amount of added perturbation is more than enough after this point and we can get away with far less for similar results. 
 
-#### Targeted
+
+#### Resnet8 multiclass
+
+
+
+### Targeted
 
 
 
