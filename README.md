@@ -21,5 +21,5 @@ How to sit straight
 
 ## Evil Images
 Tricking neural networks
-![image](images/adversarial_images/non_targeted_resnet/non_targeted_example.png)  
+![image](images/adversarial_images/non_targeted_resnet/flow.png)  
 [Read more](adversarialImages.md)
