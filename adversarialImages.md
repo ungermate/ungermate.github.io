@@ -89,7 +89,7 @@ I worked with these models:
       (∇<sub>X</sub> J(X,Y<sub>true</sub>)): gradien of loss function used (for the input X)
 
       <center>
-      <img width="1489" height="230" src="images/adversarial_images/non_targeted_resnet/binary/non_targeted_example.png">
+      <img width="1489" height="300" src="images/adversarial_images/non_targeted_resnet/flow.png">
       </center>
 
       
