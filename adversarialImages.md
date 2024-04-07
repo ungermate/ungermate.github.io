@@ -227,6 +227,30 @@ Epsilon = 0.3
 <center>
    <img width="460" height="475" src="images/adversarial_images/targeted_resnet/muffin_target/acc_vs_eps.png">
 </center>
-<em>Similar curve as before. However since all observed misclassifications are muffin -> dog, it suggests the model labels everything as a dog. Hence the drop in accuracy.</em>
+<em>Similar curve as before. However since all observed misclassifications are muffin -> dog, it suggests after epsilon = 0.15 the model labels almost everything as a dog. Hence the drop in accuracy.</em>
+
+
+#### Resnet18 multiclass
+
+Epsilon = 0.05
+
+<center>
+   <img width="1489" height="230" src="images/adversarial_images/targeted_resnet/multiclass/chicken_target/eps_005.png">
+</center>
+
+<em>5% added perturbation targeting the "chicken" class</em>
+
+Epsilon = 0.3
+
+<center>
+   <img width="1489" height="230" src="images/adversarial_images/targeted_resnet/multiclass/chicken_target/eps_03.png">
+</center>
+
+<em>30% added perturbation, also "chicken" target. Note that almost all missclassifications by this point are falsely labelled as "buttefly". Eventhough the target was missed, at least it seems somewhat consistent</em>
+
+The accuracy-epsilon relationship is identical to the non-targeted case. 
+
+
+I've also tried another targeted approach. In this one I used a dynamic target class selected by picking the least likely one from the model's initial prediction. While this seemed promising it did not deliver any better results than the previous method.  
 
 
