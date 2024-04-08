@@ -105,7 +105,7 @@ I worked with these models:
       
       (Instead of addig noise, we substract it from the original input image)
 
-In most cases attacks such as FGSM are intended to be hard to detect or undetectable by the human eye, so if in order for an image to be misclassified there is clearly visible perturbation the attack may not be considered successful.
+In most cases attacks such as FGSM are intended to be hard to detect or undetectable by the human eye. If there is clearly visible perturbation the attack may not be considered successful.
 
       
 
