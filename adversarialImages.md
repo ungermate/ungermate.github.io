@@ -2,8 +2,7 @@
 
 ## Intro
 <div align="justify">
-It feels like we are living in the future as AI (in some form) becomes part of more and more everyday events. People can't help but wonder where this might lead 
-and how could things go wrong. This got me thinking: how can I make things go wrong? How wrong? 
+It feels like we are living in the future as AI (in some form) becomes a part of more and more everyday events. People can't help but wonder where this might lead and how things could go wrong. This got me thinking: how can I make things go wrong? How wrong?
 <br>
 
 Whith these questions in mind the goal of this project is to explore some of the vulnerabilities of neural networks used for visual image classification.
@@ -38,7 +37,7 @@ Whith these questions in mind the goal of this project is to explore some of the
 
 <br>
 <div align="justify">
-  It is 18 layers deep and has a few tricks up its sleeve such as non-linear data flow (data is fed forward at certain layers skipping a couple). Since these deep networks (lot of layers) come with a large number of parameters I opted not to train it from scratch but adapt a pretrained model for my purposes. 
+  It is 18 layers deep and has a few tricks up its sleeve such as non-linear data flow (data is fed forward at certain layers skipping a couple). Since these deep networks (lots of layers) come with a large number of parameters I opted not to train it from scratch but adapt a pretrained model for my purposes. 
 </div>
 
 ## Training
@@ -53,7 +52,7 @@ I worked with these models:
      Differentiates between Chihuahuas and muffins (in some cases it's harder than you'd think) based on <a href="https://www.kaggle.com/datasets/samuelcortinhas/muffin-vs-chihuahua-image-classification">this dataset</a> with around 97% accuracy.
 
 2. Resnet18 - multiclass
-      Can label images belonging to 10 classes of animals (horse, elephand, spider...) based on <a href="https://www.kaggle.com/datasets/alessiocorrado99/animals10">this dataset</a> with an accuracy of 90%.
+      Can label images belonging to 10 classes of animals (horse, elephant, spider...) based on <a href="https://www.kaggle.com/datasets/alessiocorrado99/animals10">this dataset</a> with an accuracy of 90%.
 
 <br>
 
@@ -61,18 +60,20 @@ I worked with these models:
 ## Attack methods
 
 <div align="justify">
-   I was interested in non-targeted and targeted methods. In a classification setting non-targeted means the ouput should be anything but the correct output. In the targeted case we want the output to be a specific class defined by us. 
+   I was interested in non-targeted and targeted methods. In a classification setting non-targeted means the output should be anything but the correct output. In the targeted case we want the output to be a specific class defined by us. 
 </div>
 
    <br>
 
    1. **FGSM (Fast Gradient Sign Method)**
+         <div align="justify">
+        In classification problem during training the model we optimise the model to fit the groups/classes in our data. In this attack we try to interfere with this principle by modifying the input image such that the true class will seem less probable than everything else.
+      <br>
+      We can achieve this by adding noise to our input (image) in a specific way. First we make a prediction with the original image, then adjust the image by adding noise and then making a second prediction to see if the model has misclassified the noisy image. 
+         </div>
+      The noise is calculated by the following formula:
+      <br>
 
-        In classification problem during trainig the model we optimize the model to fit the groups/classes in our data. In this attack we try to interfere with this principle by modifying the input image such that the true class will seem less probable than everything else.
-      <br>
-      We can achieve this by adding noise to our input (image) in a specific way. First we make a prediciton with the original image, then adjust the image by addign noise and then making a second prediction to see if the model has misclassified the noisy image. The noise is calculated by the following formula:
-      <br>
-      
       X<sub>adv</sub> = X<sub>original</sub> +  ϵ * sign (∇<sub>X</sub> J(X,Y<sub>true</sub>))
       <br>
       
@@ -94,16 +95,18 @@ I worked with these models:
 
       
    3. **One-step target class**
-
-      We can wiev this attack as a modified FGSM where we do not minimize the likelyhood of the true class but maximize the likelyhood of an adversarial one. We go through the same steps as with FGSM but the formula for perturbation is slightly different:
-      <br>
+      <div align="justify">
+      We can view this attack as a modified FGSM where we do not minimise the likelihood of the true class but maximise the likelihood of an adversarial one. We go through the same steps as with FGSM but the formula for perturbation is slightly different:
+      </div>
+         <br>
       
       X<sub>adv</sub> = X<sub>original</sub> -  ϵ * sign (∇<sub>X</sub> J(X,Y<sub>true</sub>))
       <br>
       
       (Instead of addig noise, we substract it from the original input image)
 
-In most cases attacks such as FGSM are intended to be hard to detect or undetectable by the human eye, so if in order for an image to be misclassified there is clearly visible perturbation the attack may not be considered succesfull.
+In most cases attacks such as FGSM are intended to be hard to detect or undetectable by the human eye, so if in order for an image to be misclassified there is clearly visible perturbation the attack may not be considered successful.
+
       
 
 ## Results
@@ -129,8 +132,7 @@ Epsilon = 0.05
 <img width="1489" height="230" src="images/adversarial_images/non_targeted_resnet/binary/eps_005.png">
 </center>
 
-<em> With only a small amount of added perturbation the images look mostly normal, however in these cases the change was enough for the model to assigned incorrect labels.  </em>
-
+<em> With only a small amount of added perturbation the images look mostly normal, however in these cases the change was enough for the model to assign incorrect labels.  </em>
 
 
 Epsilon = 0.1
@@ -138,8 +140,7 @@ Epsilon = 0.1
 <img width="1489" height="230" src="images/adversarial_images/non_targeted_resnet/binary/eps_01.png">
 </center>
 
-<em>With a bit more perturbatin the images look rather grainy, low quality. In some cases the modification is apparent. </em>
-
+<em>With a bit more perturbation the images look rather grainy, low quality. In some cases the modification is apparent. </em>
 
 
 Epsilon = 0.3
@@ -149,10 +150,13 @@ Epsilon = 0.3
 
 <em>These are not fooling anyone (except the model), they are clearly modified</em>
 
+<div align="justify">
+Notice how in all of the above examples the attack only worked with a muffin image. Maybe these cookies are more dog-like than the dogs were muffin-like. Or perhaps a dog's facial features are more characteristic to its species than a muffin's general shape (model is less confident if something is a muffin originally).
+<br>
+The next image summarises the models accuracy in relation to the amount of added perturbation.
+</div>
 
-Notice how in all of the above examples the attack only worked with a muffin image. Maybe these cookies are more dog-like than the dogs were muffin-like. Or perhaps a dog's facial features are more charactersitic to its species than a muffin's general shape (model is less confident if something is a muffin originally).
 
-The next image summarizes the models accuracy in relation to the amount of added perturbation.
 
 <center>
    <img width="460" height="475" src="images/adversarial_images/non_targeted_resnet/binary/resnet_no_target_dogs_acc_eps.png">
@@ -160,7 +164,10 @@ The next image summarizes the models accuracy in relation to the amount of added
 
 <em>Model accuracy for each amount of added perturbation</em>
 
-The grap clearly shows the attack worked. Accuracy scores almost halved with larger epsilon values. It's interesting to see the accuracy scores plateu after epsilon reaches 0.15. This suggests that the amount of added perturbation is more than enough after this point and we can get away with far less for similar results. 
+<div align="justify">
+The graph clearly shows the attack worked. Accuracy scores almost halved with larger epsilon values. It's interesting to see the accuracy scores plateau after epsilon reaches 0.15. This suggests that the amount of added perturbation is more than enough after this point and we can get away with far less for similar results. 
+</div>
+
 
 
 #### Resnet8 multiclass
@@ -221,7 +228,7 @@ Epsilon = 0.3
    <img width="1489" height="230" src="images/adversarial_images/targeted_resnet/muffin_target/t_eps_03.png">
 </center>
 
-<em>Images with most amount of perturbation. Still all laveled dogs.</em>
+<em>Images with most amount of perturbation. Still all labeled dogs.</em>
 
 
 <center>
@@ -246,11 +253,24 @@ Epsilon = 0.3
    <img width="1489" height="230" src="images/adversarial_images/targeted_resnet/multiclass/chicken_target/eps_03.png">
 </center>
 
-<em>30% added perturbation, also "chicken" target. Note that almost all missclassifications by this point are falsely labelled as "buttefly". Eventhough the target was missed, at least it seems somewhat consistent</em>
+<em>30% added perturbation, also "chicken" target. Note that almost all misclassification by this point are falsely labelled as "butterfly". Even Though the target was missed, at least it seems somewhat consistent</em>
+
 
 The accuracy-epsilon relationship is identical to the non-targeted case. 
 
 
 I've also tried another targeted approach. In this one I used a dynamic target class selected by picking the least likely one from the model's initial prediction. While this seemed promising it did not deliver any better results than the previous method.  
 
+
+### Conclusion
+
+<div align="justify">
+FGSM is a relatively simple and computationally inexpensive method. While it is not the most reliable one, it's definitely able to significantly drop model accuracies even with a small amount of perturbation. 
+<br>
+The targeted attack doesn't work exactly as I hoped however it seems effective as well but is not worth the extra hassle. Maybe a less covert method like adversary patches might work much better. 
+</div>
+
+
+
+</div>
 
