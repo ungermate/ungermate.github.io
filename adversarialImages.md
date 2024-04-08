@@ -268,7 +268,6 @@ I've also tried another targeted approach. In this one I used a dynamic target c
 FGSM is a relatively simple and computationally inexpensive method. While it is not the most reliable one, it's definitely able to significantly drop model accuracies even with a small amount of perturbation. 
 <br>
 The targeted attack doesn't work exactly as I hoped however it seems effective as well but is not worth the extra hassle. Maybe a less covert method like adversary patches might work much better. 
-</div>
 
 
 
