@@ -8,7 +8,7 @@ them out in detail by following the appropriate links
 Measuring my pulse using a regular phone camera
   
 
-![image](images/ppg.png)  
+![image](images/ppg/one_ch_peak.png)  
 [Read more](ppg.md)
 
 
