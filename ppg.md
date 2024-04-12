@@ -41,6 +41,9 @@ Then I cropped each frame in the video to only contain the region of interest. T
 I separated the red, green and blue colour channels of the cropped images while keeping the original one. This allowed for separate examination to see if any of the channels contained more information or seemed less noisy. I checked the signals’ waveforms visually and also calculated the signal-to-noise ratio (SNR) for each of the 4 versions. Then performed the rest of the processing only on the most promising ones. 
 </div>
 
+<center>
+    <>
+</center>
 ## Analysis
 
 <div align="justify">
