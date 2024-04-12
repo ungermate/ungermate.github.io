@@ -42,8 +42,21 @@ I separated the red, green and blue colour channels of the cropped images while 
 </div>
 
 <center>
-    <>
+    <img  src="images/ppg/face_long_raw_chs.png">
 </center>
+<em>Color channels over time (in samples, here there are 1849) extracted from a face video. Large fluctuations are probably due to movement and/or lighting condition changes.</em>
+
+<center>
+
+| Channel     |      SNR    |
+| ----------- | ----------- |
+| Red         |    41.12    |
+| Green       |    42.64    |
+| Blue        |    41.88    |
+| All         |    42.63    |
+
+</center>
+
 ## Analysis
 
 <div align="justify">
