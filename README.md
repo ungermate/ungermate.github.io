@@ -13,7 +13,7 @@ Measuring my pulse using a regular phone camera
 
 
 ## Posture detection
-How to sit straight  
+Automatic suboptimal posture detection via webcam
 
 ![image](images/posture/sitting_straight.PNG)  
 [Read more](postureDetection.md)
