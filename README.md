@@ -3,7 +3,7 @@
 Here you can find some hobby projects of mine, feel free to check  
 them out in detail by following the appropriate links
 
-## Pulse from video
+## Pulse From Video
 
 Measuring my pulse using a regular phone camera
   
@@ -12,7 +12,7 @@ Measuring my pulse using a regular phone camera
 [Read more](ppg.md)
 
 
-## Posture detection
+## Posture Detection
 Automatic suboptimal posture detection via webcam
 
 ![image](images/posture/sitting_straight.PNG)  
@@ -20,6 +20,6 @@ Automatic suboptimal posture detection via webcam
 
 
 ## Evil Images
-Tricking neural networks
+How to confuse (visual) neural networks
 ![image](images/adversarial_images/non_targeted_resnet/flow.png)  
 [Read more](adversarialImages.md)
