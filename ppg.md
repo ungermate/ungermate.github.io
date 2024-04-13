@@ -3,7 +3,7 @@
 ## Intro
 Photoplethysmography (PPG) is a measurement technique used to observe volumetric changes in peripheral blood vessels. Usual measurement setups operate by having LEDs in close proximity to skin (finger) and measuring either the transmitted or refracted light.
 
-I've heard the same measurement is possible at a distance using a regular phone camera. This goal of this project is to verify this claim (also it would be pretty cool if it did work).
+I've heard the same measurement is possible at a distance using a regular phone camera. The goal of this project is to verify this claim.
 
 ## Strategy
 
