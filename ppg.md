@@ -28,12 +28,19 @@ I've heard the same measurement is possible at a distance using a regular phone 
     Since the final result of such a measurement represents the number of heartbeats over a minute (Beats Per Minute, BPM) it seemed beneficial to start with approximately 1 minute long videos. This also minimises the error coming from extrapolating results from a short video. 
 
 
-I recorded my hand, wrist and face for 1 minute each in natural and artificial light (non-flickering LEDs to avoid 60 Hz artefact). I tried to minimise movement by fixing the phone and/or bodypart’s position. I used the main camera of a Samsung Galaxy S8 (1920x1080, 30 fps).
+I recorded my hand, wrist and face for around 1 minute each in natural and artificial light (non-flickering LEDs to avoid 60 Hz artefact). I tried to minimise movement by fixing the phone and/or bodypart’s position. I used the main camera of a Samsung Galaxy S8 (1920x1080, 30 fps). Simultaneously measured my pulse by the old reliable finger-on-wrist method.
 </div>
 <br>
-<center>
-    <img  src="images/ppg/face_roi.png">
-</center>
+
+<p float="left">
+  <img src="images/ppg/face_roi.png" />
+  <img src="images/ppg/wrist_roi.png" /> 
+</p>
+<br>
+<div align="center">
+    <em>Frame of facial (left) and wrist-videos (right) with the region of interests highlighted with red rectangles. 
+</em>
+</div>
 
 ## Preprocessing
 
@@ -67,7 +74,7 @@ Based on the above table I carried out the analytic steps on the green channel a
 <div align="justify">
 I tried several different methods to clean the signals up a bit. In the end a Butterworth filter (bandpass) worked the best. I set the lower cutoff frequency to 0.6 Hz (equivalent to 36 BPM, severe bradycardia) and the higher cutoff to a generous 3 Hz (180 BPM). 
 </div>
-
+<br>
 <center>
     <img src="images/ppg/butter_fr_vs_gain.png" >
 </center>
