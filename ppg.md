@@ -28,9 +28,12 @@ I've heard the same measurement is possible at a distance using a regular phone 
     Since the final result of such a measurement represents the number of heartbeats over a minute (Beats Per Minute, BPM) it seemed beneficial to start with approximately 1 minute long videos. This also minimises the error coming from extrapolating results from a short video. 
 
 
-I recorded my hand, wrist and face for 1 minute each in natural and artificial light (non-flickering LEDs to avoid 60 Hz artefact). I tried to minimise movement by fixing the phone and/or bodypart’s position. I used the main camera of a Samsung Galaxy S8 (1920x1080, 30 fps)
-
+I recorded my hand, wrist and face for 1 minute each in natural and artificial light (non-flickering LEDs to avoid 60 Hz artefact). I tried to minimise movement by fixing the phone and/or bodypart’s position. I used the main camera of a Samsung Galaxy S8 (1920x1080, 30 fps).
 </div>
+<br>
+<center>
+    <img  src="images/ppg/face_roi.png">
+</center>
 
 ## Preprocessing
 
