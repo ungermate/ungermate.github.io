@@ -1,7 +1,9 @@
 # Máté Unger
 ### About
+<div align="justify">
 Here you can find some hobby projects of mine, feel free to check  
 them out in detail by following the appropriate links
+</div>
 
 ## Pulse From Video
 
