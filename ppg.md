@@ -74,11 +74,14 @@ Based on the above table I carried out the analytic steps on the green channel a
 I tried several different methods to clean the signals up a bit. In the end a Butterworth filter (bandpass) worked the best. I set the lower cutoff frequency to 0.6 Hz (equivalent to 36 BPM, severe bradycardia) and the higher cutoff to a generous 3 Hz (180 BPM). 
 </div>
 <br>
-<div align="justify">
+<center>
     <img src="images/ppg/butter_fr_vs_gain.png" >
-</div>
+</center>
 
+<div align="justify">
 <em> Frequency response of Butterworth filters with different orders. The higher the order tha sharper the cutoff. </em>
+</div>
+<br>
 
 <div align="justify">
 I also compared my signals with ones obtained with a built-in PPG sensor in my phone (Samsung Galaxy S8). The recordings were not concurrent but the waveforms look really similar and exhibit the <a href="https://www.researchgate.net/publication/335023100_Non-invasive_evaluation_of_coronary_heart_disease_in_patients_with_chronic_kidney_disease_using_photoplethysmography">characteristics</a> of reflected PPG measurements. 
