@@ -1,8 +1,7 @@
 # PPG at a distance
 
 ## Intro
-Photoplethysmography (PPG) is a measurement technique used to observe volumetric changes in peripheral blood vessels.  
-Usual measurement setups operate by having LEDs in close proximity to skin (finger) and measuring either the transmitted or refracted light.
+Photoplethysmography (PPG) is a measurement technique used to observe volumetric changes in peripheral blood vessels. Usual measurement setups operate by having LEDs in close proximity to skin (finger) and measuring either the transmitted or refracted light.
 
 I've heard the same measurement is possible at a distance using a regular phone camera. This goal of this project is to verify this claim (also it would be pretty cool if it did work).
 
@@ -75,9 +74,9 @@ Based on the above table I carried out the analytic steps on the green channel a
 I tried several different methods to clean the signals up a bit. In the end a Butterworth filter (bandpass) worked the best. I set the lower cutoff frequency to 0.6 Hz (equivalent to 36 BPM, severe bradycardia) and the higher cutoff to a generous 3 Hz (180 BPM). 
 </div>
 <br>
-<center>
+<div align="justify">
     <img src="images/ppg/butter_fr_vs_gain.png" >
-</center>
+</div>
 
 <em> Frequency response of Butterworth filters with different orders. The higher the order tha sharper the cutoff. </em>
 
