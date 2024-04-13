@@ -131,3 +131,12 @@ Another approach not reliant on counting peaks is to analyse the signal in the f
 The graphs above show that the frequency domain representation can be quite effective in determining the heart rate from a video. In this case the most dominant frequency component is clearly 1.25 Hz which would mean 75 BPM. That is only 1 off from the actual number of heartbeats for this given recording. I’ve had similarly accurate estimations for different videos, so it seems this is a rather reliable way of obtaining the heart rate.
 </div>
 
+
+## Conclusions
+
+<div align="justify">
+I’ve found that it is indeed possible without any special tools to measure one's heart rate just by taking a video of a body part. I’ve also managed to get pretty accurate results using both time domain (peak finding) and frequency domain (FFT) analysis. 
+
+<br>
+While some of my results are accurate I’ve had to carefully produce the videos to have favourable lighting conditions. Also the obtained signals are quite noisy as the sensor (camera) is quite far away from the subject (skin) compared to traditional PPG measurement setups.
+</div>
