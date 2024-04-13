@@ -71,8 +71,20 @@ I tried several different methods to clean the signals up a bit. In the end a Bu
 
 <em> Frequency response of Butterworth filters with different orders. The higher the order tha sharper the cutoff. </em>
 
+<div align="justify">
+I also compared my signals with ones obtained with a built-in PPG sensor in my phone (Samsung Galaxy S8). The recordings were not concurrent but the waveforms look really similar and exhibit the <a href="https://www.researchgate.net/publication/335023100_Non-invasive_evaluation_of_coronary_heart_disease_in_patients_with_chronic_kidney_disease_using_photoplethysmography">characteristics</a> of reflected PPG measurements. 
+</div>
+<br>
 
 
+<center>
+  <img src="images/ppg/pusle_waveform_samsung_app.png" > 
+</center>
+
+<div align="center">
+<em>Filtered waveforms obtained via phone built-in PPG sensor and camera.</em>
+</div>
+<br>
 
 <div align="justify">
     
@@ -90,6 +102,22 @@ First I tried using numpy’s find_peaks method which aims to find all peaks fit
 <div align="justify">
 <em> Signal (all channels combined) filtered with Butterworth filters with different orders. After about the 5th order there were no useful changes (order = 9 is completely distorted). The graph also shows the detected peaks with black asterisks. Notice how the last peak is only detected in just one case.</em>
 </div>
+<br>
 
+<div align="justify">
+Another approach not reliant on counting peaks is to analyse the signal in the frequency domain. I opted for a Fast Fourier Transform (FFT) which decomposes the given signal into the sum of periodic functions with different frequencies. This method allows us to observe how much a frequency component contributes to building the original signal.  
+</div>
+<br>
 
+<center>
+    <img src="images/ppg/al_wrist_76_fft.png" >
+</center>
+<div align="center">
+<em>Frequency domain representations of a signal (video of wrist, 76 BPM) filtered with different orders. Notice how the most dominant frequency component (highest peak) is the same in all 3 cases.</em>
+</div>
+<br>
+
+<div align="justify">
+The graphs above show that the frequency domain representation can be quite effective in determining the heart rate from a video. In this case the most dominant frequency component is clearly 1.25 Hz which would mean 75 BPM. That is only 1 off from the actual number of heartbeats for this given recording. I’ve had similarly accurate estimations for different videos, so it seems this is a rather reliable way of obtaining the heart rate.
+</div>
 
