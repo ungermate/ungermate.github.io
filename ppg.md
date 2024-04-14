@@ -32,8 +32,8 @@ I recorded my hand, wrist and face for around 1 minute each in natural and artif
 <br>
 
 <p float="center">
-  <img src="images/ppg/face_roi.png" width=475 />
-  <img src="images/ppg/wrist_roi.png" width=475 /> 
+  <img src="images/ppg/face_roi.png" width=480 />
+  <img src="images/ppg/wrist_roi.png" width=480 /> 
 </p>
 <br>
 <div align="center">
@@ -112,7 +112,7 @@ First I tried using numpy’s find_peaks method which aims to find all peaks fit
 
 
 <div align="justify">
-<em> Signal (all channels combined) filtered with Butterworth filters with different orders. After about the 5th order there were no useful changes (order = 9 is completely distorted). The graph also shows the detected peaks with black asterisks. Notice how the last peak is only detected in just one case.</em>
+<em> Signal (all channels combined) filtered with Butterworth filters with different orders. After about the 5th order there were no useful changes (order = 9 is completely distorted / overdamped). The graph also shows the detected peaks with black asterisks. Notice how the last peak is only detected in just one case. I've counted 62 pulses by hand, so it is just off by one.</em>
 </div>
 <br>
 
