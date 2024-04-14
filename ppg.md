@@ -31,6 +31,8 @@ I recorded my hand, wrist and face for around 1 minute each in natural and artif
 </div>
 <br>
 
+![alt-text-1](images/ppg/face_roi.png "title-1") ![alt-text-2](images/ppg/wrist_roi.png "title-2")
+
 <p float="left">
   <img src="images/ppg/face_roi.png" />
   <img src="images/ppg/wrist_roi.png" /> 
