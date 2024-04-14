@@ -10,7 +10,7 @@ them out in detail by following the appropriate links
 Measuring my pulse using a regular phone camera
   
 
-![image](images/ppg/one_ch_peak.png)  
+![image](images/ppg/one_ch_peak_short.png)  
 [Read more](ppg.md)
 
 
