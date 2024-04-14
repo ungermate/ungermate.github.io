@@ -17,7 +17,7 @@ Measuring my pulse using a regular phone camera
 ## Posture Detection
 Automatic suboptimal posture detection via webcam
 
-![image](images/posture/sitting_straight.PNG)  
+![image](images/posture/sitting_straig_small.PNG)  
 [Read more](postureDetection.md)
 
 
