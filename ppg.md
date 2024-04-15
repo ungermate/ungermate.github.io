@@ -1,8 +1,10 @@
 # PPG at a distance
 
 ## Intro
-Photoplethysmography (PPG) is a measurement technique used to observe volumetric changes in peripheral blood vessels. Usual measurement setups operate by having LEDs in close proximity to skin (finger) and measuring either the transmitted or refracted light.
-
+<div align="justify">
+Photoplethysmography (PPG) is a measurement technique used to observe volumetric changes in peripheral blood vessels. Usual measurement setups operate by having LEDs in close proximity to skin (finger) and measuring either the transmitted or reflected light.
+</div>
+<br>
 I've heard the same measurement is possible at a distance using a regular phone camera. The goal of this project is to verify this claim.
 
 ## Strategy
@@ -35,7 +37,6 @@ I recorded my hand, wrist and face for around 1 minute each in natural and artif
   <img src="images/ppg/face_roi.png" width=480 />
   <img src="images/ppg/wrist_roi.png" width=480 /> 
 </p>
-<br>
 <div align="center">
     <em>Frame of facial (left) and wrist-videos (right) with the region of interests highlighted with red rectangles. 
 </em>
@@ -46,15 +47,21 @@ I recorded my hand, wrist and face for around 1 minute each in natural and artif
 <div align="justify">
     First I read the metadata of the video to obtain precise info about the framerate, dimensions, number of frames.
 Then I cropped each frame in the video to only contain the region of interest. This was usually relatively homogeneous (colour wise) so darker/lighter parts drifting in and out of the crop wouldn't throw off the calculations (in case of minor movements).
-
+<br>
+<br>
 I separated the red, green and blue colour channels of the cropped images while keeping the original one. This allowed for separate examination to see if any of the channels contained more information or seemed less noisy. I checked the signals’ waveforms visually and also calculated the signal-to-noise ratio (SNR) for each of the 4 versions. Then performed the rest of the processing only on the most promising ones. 
 </div>
+<br>
 
 <center>
     <img  src="images/ppg/face_long_raw_chs.png">
 </center>
-<em>Color channels over time (in samples, here there are 1849) extracted from a face video. Large fluctuations are probably due to movement and/or lighting condition changes.</em>
 
+<div align="center">
+<em>Color channels over time (in samples, here there are 1849) extracted from a face video. Large fluctuations are probably due to movement and/or lighting condition changes.</em>
+</div>
+<br>
+<br>
 
 | Channel     |      SNR    |
 | ----------- | ----------- |
@@ -62,6 +69,7 @@ I separated the red, green and blue colour channels of the cropped images while 
 | Green       |    42.64    |
 | Blue        |    41.88    |
 | All         |    42.63    |
+
 
 <em> Signal-to-noise ratio for the used color channels. "All" refers to the non-separated case.</em>
 
@@ -78,7 +86,7 @@ I tried several different methods to clean the signals up a bit. In the end a Bu
     <img src="images/ppg/butter_fr_vs_gain.png" >
 </center>
 
-<div align="justify">
+<div align="center">
 <em> Frequency response of Butterworth filters with different orders. The higher the order tha sharper the cutoff. </em>
 </div>
 <br>
@@ -102,16 +110,16 @@ I also compared my signals with ones obtained with a built-in PPG sensor in my p
     
 After smoothing the signals with this filter, the next step was to detect the peaks corresponding to heartbeats.
 First I tried using numpy’s find_peaks method which aims to find all peaks fitting given criteria. I set the peak-to-peak distance (fs/high cutoff) and peak prominences (how much each peak protrudes out of its environment). With these 2 parameters I was able to identify almost all peaks relatively reliably (given clean enough input). For more noisy signals where the peak detection was less reliable I also tried estimating it by looking at the mean, modus and median of the peak-to-peak distances. While these were effective in some cases, overall they seemed too simple to be reliable. 
-
-
 </div>
+<br>
+
 
 <center>
     <img src="images/ppg/face_long_smooth_signals.png" >
 </center>
 
 
-<div align="justify">
+<div align="center">
 <em> Signal (all channels combined) filtered with Butterworth filters with different orders. After about the 5th order there were no useful changes (order = 9 is completely distorted / overdamped). The graph also shows the detected peaks with black asterisks. Notice how the last peak is only detected in just one case. I've counted 62 pulses by hand, so it is just off by one.</em>
 </div>
 <br>
