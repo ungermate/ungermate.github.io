@@ -49,9 +49,11 @@ Whith these questions in mind the goal of this project is to explore some of the
 I worked with these models:
 
 1. Resnet18 - binary classification
+   
      Differentiates between Chihuahuas and muffins (in some cases it's harder than you'd think) based on <a href="https://www.kaggle.com/datasets/samuelcortinhas/muffin-vs-chihuahua-image-classification">this dataset</a> with around 97% accuracy.
 
 2. Resnet18 - multiclass
+   
       Can label images belonging to 10 classes of animals (horse, elephant, spider...) based on <a href="https://www.kaggle.com/datasets/alessiocorrado99/animals10">this dataset</a> with an accuracy of 90%.
 
 <br>
@@ -68,7 +70,6 @@ I worked with these models:
    1. **FGSM (Fast Gradient Sign Method)**
          <div align="justify">
         In classification problem during training the model we optimise the model to fit the groups/classes in our data. In this attack we try to interfere with this principle by modifying the input image such that the true class will seem less probable than everything else.
-      <br>
       We can achieve this by adding noise to our input (image) in a specific way. First we make a prediction with the original image, then adjust the image by adding noise and then making a second prediction to see if the model has misclassified the noisy image. 
          </div>
       The noise is calculated by the following formula:
@@ -92,8 +93,10 @@ I worked with these models:
       <center>
       <img width="1489" height="300" src="images/adversarial_images/non_targeted_resnet/flow.png">
       </center>
+      <br>
 
-      
+
+   
    3. **One-step target class**
       <div align="justify">
       We can view this attack as a modified FGSM where we do not minimise the likelihood of the true class but maximise the likelihood of an adversarial one. We go through the same steps as with FGSM but the formula for perturbation is slightly different:
@@ -122,9 +125,10 @@ Epsilon = 0 (control)
 <img width="1489" height="230" src="images/adversarial_images/non_targeted_resnet/binary/eps_0.png">
 </center>
 
+<div align="center">
 <em>Unmodified control images. Notice how the model is able to tell the last image also contains dogs.  </em>
-   
-
+</div>
+<br>
 
 
 Epsilon = 0.05
@@ -132,7 +136,11 @@ Epsilon = 0.05
 <img width="1489" height="230" src="images/adversarial_images/non_targeted_resnet/binary/eps_005.png">
 </center>
 
+
+<div align="center">
 <em> With only a small amount of added perturbation the images look mostly normal, however in these cases the change was enough for the model to assign incorrect labels.  </em>
+</div>
+<br>
 
 
 Epsilon = 0.1
@@ -140,29 +148,38 @@ Epsilon = 0.1
 <img width="1489" height="230" src="images/adversarial_images/non_targeted_resnet/binary/eps_01.png">
 </center>
 
+<div align="center">
 <em>With a bit more perturbation the images look rather grainy, low quality. In some cases the modification is apparent. </em>
-
+</div>
+<br>
 
 Epsilon = 0.3
 <center>
 <img width="1489" height="230" src="images/adversarial_images/non_targeted_resnet/binary/eps_03.png">
 </center>
 
+<div align="center">
 <em>These are not fooling anyone (except the model), they are clearly modified</em>
+</div>
+<br>
 
 <div align="justify">
 Notice how in all of the above examples the attack only worked with a muffin image. Maybe these cookies are more dog-like than the dogs were muffin-like. Or perhaps a dog's facial features are more characteristic to its species than a muffin's general shape (model is less confident if something is a muffin originally).
+<br>
 <br>
 The next image summarises the models accuracy in relation to the amount of added perturbation.
 </div>
 
 
-
+<br>
 <center>
    <img width="460" height="475" src="images/adversarial_images/non_targeted_resnet/binary/resnet_no_target_dogs_acc_eps.png">
 </center>
 
+<div align="center">
 <em>Model accuracy for each amount of added perturbation</em>
+</div>
+<br>
 
 <div align="justify">
 The graph clearly shows the attack worked. Accuracy scores almost halved with larger epsilon values. It's interesting to see the accuracy scores plateau after epsilon reaches 0.15. This suggests that the amount of added perturbation is more than enough after this point and we can get away with far less for similar results. 
@@ -179,26 +196,42 @@ Epsilon = 0
    <img width="1489" height="230" src="images/adversarial_images/non_targeted_resnet/multiclass/eps_0.png">
 </center>
 
+<div align="center">
 <em>Control group, model makes correct predictions</em>
+</div>
+
 
 Epsilon = 0.05
 <center>
    <img width="1489" height="230" src="images/adversarial_images/non_targeted_resnet/multiclass/eps_005.png">
 </center>
 
+
+<div align="center">
 <em>In some cases it's hard to tell whether the image has been modified or not.</em>
+</div>
 
 Epsilon = 0.3
 <center>
    <img width="1489" height="230" src="images/adversarial_images/non_targeted_resnet/multiclass/eps_03.png">
 </center>
 
+
+<div align="center">
 <em>Obvious signs of modification.</em>
+</div>
+<br>
 
 <center>
    <img width="460" height="475" src="images/adversarial_images/non_targeted_resnet/multiclass/resnet_no_target_10_acc_eps.png">
 </center>
+
+
+
+<div align="center">
 <em>Model accuracy as a function of added perturbation</em>
+</div>
+<br>
 
 <div align="justify">
    Again we can see a sharp drop in accuracy after 5% added perturbation. This time we have not managed to hit a plateau, however it would most certainly come with a further 5-10% added perturbation as we are nearing the 10% accuracy mark (which would be expected with random guesses). 
@@ -221,21 +254,28 @@ Epsilon = 0
    <img width="1489" height="230" src="images/adversarial_images/targeted_resnet/muffin_target/t_eps_0.png">
 </center>
 
+<div align="center">
 <em>Control group, model makes correct predictions</em>
+</div>
 
 Epsilon = 0.3
 <center>
    <img width="1489" height="230" src="images/adversarial_images/targeted_resnet/muffin_target/t_eps_03.png">
 </center>
 
-<em>Images with most amount of perturbation. Still all labeled dogs.</em>
 
+<div align="center">
+<em>Images with most amount of perturbation. Still all labeled dogs.</em>
+</div>
+<br>
 
 <center>
    <img width="460" height="475" src="images/adversarial_images/targeted_resnet/muffin_target/acc_vs_eps.png">
 </center>
-<em>Similar curve as before. However since all observed misclassifications are muffin -> dog, it suggests after epsilon = 0.15 the model labels almost everything as a dog. Hence the drop in accuracy.</em>
 
+<div align="center">
+<em>Similar curve as before. However since all observed misclassifications are muffin -> dog, it suggests after epsilon = 0.15 the model labels almost everything as a dog. Hence the drop in accuracy.</em>
+</div>
 
 #### Resnet18 multiclass
 
@@ -245,7 +285,10 @@ Epsilon = 0.05
    <img width="1489" height="230" src="images/adversarial_images/targeted_resnet/multiclass/chicken_target/eps_005.png">
 </center>
 
+
+<div align="center">
 <em>5% added perturbation targeting the "chicken" class</em>
+</div>
 
 Epsilon = 0.3
 
@@ -253,9 +296,10 @@ Epsilon = 0.3
    <img width="1489" height="230" src="images/adversarial_images/targeted_resnet/multiclass/chicken_target/eps_03.png">
 </center>
 
+<div align="center">
 <em>30% added perturbation, also "chicken" target. Note that almost all misclassification by this point are falsely labelled as "butterfly". Even Though the target was missed, at least it seems somewhat consistent</em>
-
-
+</div>
+<br>
 The accuracy-epsilon relationship is identical to the non-targeted case. 
 
 
